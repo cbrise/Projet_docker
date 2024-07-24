@@ -22,8 +22,11 @@ root@sc30:~# docker node promote 0n1mekkny0iyn8zksu9xk5089
 root@sc28:~# docker node ls 
 
 ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+
 k7a1xfbvi5nzfygzdjeh1am3z *   sc28       Ready     Active         Leader           27.0.3
+
 0n1mekkny0iyn8zksu9xk5089     sc29       Ready     Active         Reachable        20.10.24+dfsg1
+
 d3mnprtz7r0vhs865z5ginlnc     sc30       Ready     Active         Reachable        20.10.24+dfsg1
 
 # 2 Mise en place du Keepalived
