@@ -7,13 +7,13 @@ Nos applications sont un wordpress avec MySQL avec un Prometheus associé à un 
 
 # 1 Mise en place d'un Docker Swarm
 
-root@sc28:~# docker swarm init --advertise-addr {172.20.107.140} --data-path-port=7789
-root@sc28:~# docker swarm join-token manager
-root@sc29:~# docker swarm join --token SWMTKN-1-38g9iwl49s1c8i8wdtyxlbq2825zmhervpnlscar1std5uyd7g-6g6wyguylbbg1y05ttzljsbgo 172.20.107.140:2377
-root@sc30:~# docker swarm join --token SWMTKN-1-38g9iwl49s1c8i8wdtyxlbq2825zmhervpnlscar1std5uyd7g-6g6wyguylbbg1y05ttzljsbgo 172.20.107.140:2377
-root@sc29:~# docker node promote d3mnprtz7r0vhs865z5ginlnc
-root@sc30:~# docker node promote 0n1mekkny0iyn8zksu9xk5089
-root@sc28:~# docker node ls
+root@sc28:~# docker swarm init --advertise-addr {172.20.107.140} --data-path-port=7789 
+root@sc28:~# docker swarm join-token manager 
+root@sc29:~# docker swarm join --token SWMTKN-1-38g9iwl49s1c8i8wdtyxlbq2825zmhervpnlscar1std5uyd7g-6g6wyguylbbg1y05ttzljsbgo 172.20.107.140:2377 
+root@sc30:~# docker swarm join --token SWMTKN-1-38g9iwl49s1c8i8wdtyxlbq2825zmhervpnlscar1std5uyd7g-6g6wyguylbbg1y05ttzljsbgo 172.20.107.140:2377 
+root@sc29:~# docker node promote d3mnprtz7r0vhs865z5ginlnc 
+root@sc30:~# docker node promote 0n1mekkny0iyn8zksu9xk5089 
+root@sc28:~# docker node ls 
 
 ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
 k7a1xfbvi5nzfygzdjeh1am3z *   sc28       Ready     Active         Leader           27.0.3
@@ -22,8 +22,8 @@ d3mnprtz7r0vhs865z5ginlnc     sc30       Ready     Active         Reachable     
 
 # 2 Mise en place du Keepalived
 
-root@sc28:~# apt-get install keepalived
-root@sc28:~# nano /etc/keepalived/keepalived.conf
+root@sc28:~# apt-get install keepalived 
+root@sc28:~# nano /etc/keepalived/keepalived.conf 
 vrrp_instance VI_1 {
     state MASTER
     interface ens192
@@ -39,8 +39,8 @@ vrrp_instance VI_1 {
     }
 }
 
-root@sc29:~# apt-get install keepalived
-root@sc29:~# nano /etc/keepalived/keepalived.conf
+root@sc29:~# apt-get install keepalived 
+root@sc29:~# nano /etc/keepalived/keepalived.conf 
 vrrp_instance VI_1 {
     state BACKUP
     interface ens192
@@ -56,8 +56,8 @@ vrrp_instance VI_1 {
     }
 }
 
-root@sc30:~# apt-get install keepalived
-root@sc30:~# nano /etc/keepalived/keepalived.conf
+root@sc30:~# apt-get install keepalived 
+root@sc30:~# nano /etc/keepalived/keepalived.conf 
 vrrp_instance VI_1 {
     state BACKUP
     interface ens192
