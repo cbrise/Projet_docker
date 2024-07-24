@@ -36,18 +36,31 @@ root@sc28:~# apt-get install keepalived
 root@sc28:~# nano /etc/keepalived/keepalived.conf
 
 vrrp_instance VI_1 {
+
     state MASTER
+    
     interface ens192
+    
     virtual_router_id 51
+    
     priority 100
+    
     advert_int 1
+    
     authentication {
+    
         auth_type PASS
+        
         auth_pass 12345
+        
     }
+    
     virtual_ipaddress {
+    
         172.20.107.143
+        
     }
+    
 }
 
 root@sc29:~# apt-get install keepalived
