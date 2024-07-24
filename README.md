@@ -36,7 +36,6 @@ root@sc28:~# apt-get install keepalived
 root@sc28:~# nano /etc/keepalived/keepalived.conf
 
 vrrp_instance VI_1 {
-
     state MASTER
     
     interface ens192
@@ -67,7 +66,6 @@ root@sc29:~# apt-get install keepalived
 root@sc29:~# nano /etc/keepalived/keepalived.conf
 
 vrrp_instance VI_1 {
-
     state BACKUP
     
     interface ens192
@@ -98,7 +96,6 @@ root@sc30:~# apt-get install keepalived
 root@sc30:~# nano /etc/keepalived/keepalived.conf
 
 vrrp_instance VI_1 {
-
     state BACKUP
     
     interface ens192
