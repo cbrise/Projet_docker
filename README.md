@@ -59,8 +59,7 @@ vrrp_instance VI_1 {
     
         172.20.107.143
         
-    }
-    
+    } 
 }
 
 root@sc29:~# apt-get install keepalived
@@ -68,17 +67,29 @@ root@sc29:~# apt-get install keepalived
 root@sc29:~# nano /etc/keepalived/keepalived.conf
 
 vrrp_instance VI_1 {
+
     state BACKUP
+    
     interface ens192
+    
     virtual_router_id 51
+    
     priority 90
+    
     advert_int 1
+    
     authentication {
+    
         auth_type PASS
+        
         auth_pass 12345
+        
     }
+    
     virtual_ipaddress {
+    
         172.20.107.143
+        
     }
 }
 
@@ -87,17 +98,29 @@ root@sc30:~# apt-get install keepalived
 root@sc30:~# nano /etc/keepalived/keepalived.conf
 
 vrrp_instance VI_1 {
+
     state BACKUP
+    
     interface ens192
+    
     virtual_router_id 51
+    
     priority 90
+    
     advert_int 1
+    
     authentication {
+    
         auth_type PASS
+        
         auth_pass 12345
+        
     }
+    
     virtual_ipaddress {
+    
         172.20.107.143
+        
     }
 }
 
