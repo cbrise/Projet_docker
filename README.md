@@ -287,7 +287,7 @@ root@sc30:~# mount.glusterfs localhost:/gfs /mnt
 Il faut coller le répertoire /mnt/wordpress sur le volume Glusterfs, puis dans ce répertoire, créer le répertoire mysql et le répertoire wp-content
 
 Pour  lancer le serveur wordpress, aller dans le répertoire wordpress (celui qui est à la base du projet) et faire cette commande: 
-    - docker stack deploy -c docker-compose.yml wordpress
+     docker stack deploy -c docker-compose.yml wordpress
 
 
 
