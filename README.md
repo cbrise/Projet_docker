@@ -135,12 +135,14 @@ Prérequis :
     
 Il faut ensuite déclarer le DNS des serveurs du cluster : 
 root@sc28:~# cat /etc/hosts
+
 127.0.0.1       localhost
 127.0.1.1       sc28
 172.20.107.141  sc29
 172.20.107.142  sc30
 
 root@sc29:~# cat /etc/hosts
+
 127.0.0.1       localhost
 127.0.1.1       sc29
 172.20.107.140  sc28
@@ -148,6 +150,7 @@ root@sc29:~# cat /etc/hosts
 
 
 root@sc30:~# cat /etc/hosts
+
 127.0.0.1       localhost
 127.0.1.1       sc30
 172.20.107.140  sc28
@@ -160,33 +163,49 @@ Faire ces commandes :
 
 1er serveur:
 root@sc28:~# mkfs.xfs /dev/sdb
+
 root@sc28:~# mkdir -p /gluster/bricks/1
+
 root@sc28:~# echo '/dev/sdb /gluster/bricks/1 xfs defaults 0 0' >> /etc/fstab
+
 root@sc28:~# mount -a
+
 montage : (astuce) votre fstab a été modifié mais systemd utilise encore
        l'ancienne version ; utilisez « systemctl daemon-reload » pour recharger.
 root@sc28:~# systemctl daemon-reload
+
 root@sc28:~# mkdir /gluster/bricks/1/brick
 
 2e serveur:
 root@sc29:~# mkdir -p /gluster/bricks/2
+
 root@sc29:~# echo '/dev/sdb /gluster/bricks/2 xfs defaults 0 0' >> /etc/fstab
+
 root@sc29:~# mount -a
 montage : (astuce) votre fstab a été modifié mais systemd utilise encore
        l'ancienne version ; utilisez « systemctl daemon-reload » pour recharger.
+       
 root@sc29:~# systemctl daemon-reload
+
 root@sc29:~# mount -a
+
 root@sc29:~# mkdir /gluster/bricks/2/brick
+
 root@sc29:~#
 
 3e serveur:
 root@sc30:~# mkdir -p /gluster/bricks/3
+
 root@sc30:~# echo '/dev/sdb /gluster/bricks/3 xfs defaults 0 0' >> /etc/fstab
+
 root@sc30:~# mount -a
 montage : (astuce) votre fstab a été modifié mais systemd utilise encore
        l'ancienne version ; utilisez « systemctl daemon-reload » pour recharger.
+       
 root@sc30:~# systemctl daemon-reload
+
 root@sc30:~# mkdir /gluster/bricks/3/brick
+
 root@sc30:~#
 
 Sur chaque serveurs :
@@ -199,6 +218,7 @@ systemctl status glusterd
 Ajouter les deux membres du cluster, voici un exemple:
 root@sc29:~# gluster peer probe sc30
 peer probe: success
+
 root@sc29:~# gluster peer probe sc28
 peer probe: success
 
@@ -224,6 +244,7 @@ sc30:/gluster/bricks/3/brick
 
 root@sc29:~# gluster volume start gfs
 volume start: gfs: success
+
 root@sc29:~# gluster volume status gfs
 Status of volume: gfs
 Gluster process                             TCP Port  RDMA Port  Online  Pid
@@ -247,12 +268,15 @@ volume set: success
 
 Déclaration des points de montage pour le boot des serveurs :
 root@sc28:~# echo 'localhost:/gfs /mnt glusterfs defaults,_netdev,backupvolfile-server=localhost 0 0' >> /etc/fstab
+
 root@sc28:~# mount.glusterfs localhost:/gfs /mnt
 
 root@sc29:~# echo 'localhost:/gfs /mnt glusterfs defaults,_netdev,backupvolfile-server=localhost 0 0' >> /etc/fstab
+
 root@sc29:~# mount.glusterfs localhost:/gfs /mnt
 
 root@sc30:~# echo 'localhost:/gfs /mnt glusterfs defaults,_netdev,backupvolfile-server=localhost 0 0' >> /etc/fstab
+
 root@sc30:~# mount.glusterfs localhost:/gfs /mnt
 
 
