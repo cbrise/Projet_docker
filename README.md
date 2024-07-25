@@ -286,8 +286,8 @@ root@sc30:~# mount.glusterfs localhost:/gfs /mnt
 # 4 Mise en place d'un Wordpress avec MySQL
 Il faut coller le répertoire /mnt/wordpress sur le volume Glusterfs, puis dans ce répertoire, créer le répertoire mysql et le répertoire wp-content
 
-Pour  lancer le serveur wordpress, aller dans le répertoire wordpress (celui qui est à la base du projet) et faire cette commande:
-docker stack deploy -c docker-compose.yml wordpress
+Pour  lancer le serveur wordpress, aller dans le répertoire wordpress (celui qui est à la base du projet) et faire cette commande: 
+    - docker stack deploy -c docker-compose.yml wordpress
 
 
 
@@ -306,7 +306,7 @@ Prérequis :
         - 'IP_Hôte_3:8080'
  
 Pour lancer la récolte des données des membres de la stack et des conteneurs, aller dans le répertoire Prometheus (celui qui est à la base du projet) et faire cette commande:
-docker stack deploy -c cadvisor-stack.yml cadvisor
+    - docker stack deploy -c cadvisor-stack.yml cadvisor
 
 Pour lancer les conteneurs permettant la supervision et l'alerting, il faut lancer cette commande :
 docker stack deploy -c docker-compose.yml prometheus
