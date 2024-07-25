@@ -306,7 +306,7 @@ Prérequis :
         - 'IP_Hôte_3:8080'
  
 Pour lancer la récolte des données des membres de la stack et des conteneurs, aller dans le répertoire Prometheus (celui qui est à la base du projet) et faire cette commande:
-    - docker stack deploy -c cadvisor-stack.yml cadvisor
+     docker stack deploy -c cadvisor-stack.yml cadvisor
 
 Pour lancer les conteneurs permettant la supervision et l'alerting, il faut lancer cette commande :
 docker stack deploy -c docker-compose.yml prometheus
