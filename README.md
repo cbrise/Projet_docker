@@ -301,7 +301,7 @@ Prérequis :
         - 'IP_Hôte_1:8080'
         - 'IP_Hôte_2:8080'
         - 'IP_Hôte_3:8080'
-
+ 
 Pour lancer la récolte des données des membres de la stack et des conteneurs, aller dans le répertoire Prometheus (celui qui est à la base du projet) et faire cette commande:
 docker stack deploy -c cadvisor-stack.yml cadvisor
 
