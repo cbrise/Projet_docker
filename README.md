@@ -130,10 +130,12 @@ vrrp_instance VI_1 {
 # 3 Mise en place de Glusterfs
 
 Prérequis :
+
     - Avoir le paquet xfsprogs d'installer
     - Avoir un second disque physique monté 
     
 Il faut ensuite déclarer le DNS des serveurs du cluster : 
+
 root@sc28:~# cat /etc/hosts
 
 127.0.0.1       localhost
