@@ -292,6 +292,7 @@ docker stack deploy -c docker-compose.yml wordpress
 # 5 Mise en place d'un Prometheus avec des notifications Discord
 
 Prérequis :
+
     - Il faut coller le répertoire /mnt/prometheus dans le volume Glusterfs
     - Dans le fichier /mnt/prometheus/alertmanager.yml : Il faut modifier la valeur de la variable webhook_url par celle de son propre webhook.
     - Dans le fichier /mnt/prometheus/prometheus.yml : Il faut modifier les variables "targets" par les IP des hôtes du cluster swarm ( Rajouter des - si plus de membres)
