@@ -312,6 +312,11 @@ Pour lancer les conteneurs permettant la supervision et l'alerting, il faut lanc
 docker stack deploy -c docker-compose.yml prometheus
 
 
+Vous devriez avoir un résultat comme cela :
+![image](https://github.com/user-attachments/assets/02dd6c96-e75a-470f-935c-5ebd9d088ab9)
+
+
+
 
 
 
